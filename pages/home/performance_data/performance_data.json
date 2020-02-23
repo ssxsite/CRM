@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Select": "../../../component/select/select",
+    "Dropdown":"../../../component/dropdown/dropdown",
+    "navigationBar": "../../../component/navigationBar/navigationBar"
+     
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/login/login",
+    "pages/quick/send_red/send_red",
+    "pages/user/blank/blank",
+    "pages/workbench/customer_list/customer_list",
+    "pages/workbench/customer_detail/customer_detail",
+    "pages/quick/send_red_detail/send_red_detail",
+    "pages/workbench/add_tips/add_tips",
+    "pages/quick/search_customer/search_customer",
+    "pages/quick/send_history/send_history",
+    "pages/home/performance_data/performance_data",
+    "pages/home/performance_detail/performance_detail",
+    "pages/user/setting/setting",
+    "pages/user/forget_password/forget_password",
+    "pages/workbench/work_list/work_list"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000,
+    "connectSocket": 10000
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

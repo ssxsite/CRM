@@ -1,0 +1,171 @@
+<!--index.wxml-->
+
+
+<wxs src="../../component/transform.wxs" module="threeNum" />
+<import src="/tabbar.wxml" />
+<view class="container">
+    <cover-view class="navBar" style="height: {{marginTop}}px">
+        <cover-view class="title_text">首页</cover-view>
+    </cover-view>
+
+    <scroll-view scroll-y="true"  bindscroll="scroll" style="height: 2140rpx;padding-top: {{marginTop}}px" >
+        <view class='scroll-contain'>
+            <view  class="common headerBac" >
+                <view style='padding-top:32rpx;padding-left:44rpx'>
+                    <text class='whiteText1'>{{user_detail.name}}</text>
+                    <image class='settingImage' bindtap='setting' src='../../images/setting.png'></image>
+                    <view style='height:60rpx;width:300rpx;padding-top:8rpx'>
+                        <text class='whiteText3'>冻品在线{{user_detail.organName+'\n'+user_detail.roleName}}</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="performanceModel">
+                <view class='head'>
+                    <view class='modelTitle'>业绩看板</view>
+                    <view class='arrow_down_select'>
+                        <HomeSelect bind:myevent="getPerformance_model" id="countdown" selectShow="{{selectShow}}" nowText='今天' prop-array='{{selectArray}}'></HomeSelect>
+                    </view>
+                </view>
+                <view class='saleAmount'>
+                    <text class='grayTextNormal1'>销售额：<text class='boldAmount'>{{performanceData.totalOrderAmount}}</text></text>
+                    <text class='grayTextNormal2'>订单数：<text class='boldAmount'>{{performanceData.totalOrderCount}}</text></text>
+                </view>
+                <view class="chart-row" bindtap='goPerformance'>
+                    <view class="box">
+                        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+                        <!--<cover-view  class="performancetap"></cover-view>-->
+                    </view>
+                    <view class="tuli">
+                        <view  class="tuli-list" wx:if="{{tuli_Array && tuli_Array.length>0 && no_performance==false}}">
+                            <view wx:for="{{tuli_Array}}" wx:key="{{index}}" class="tuli-item">
+                                <view class="color-block" wx:if="{{index==0}}"  style="background-color:#FC6E51"></view>
+                                <view class="color-block" wx:elif="{{index==1}}"  style="background-color:#4FC1E9"></view>
+                                <view class="color-block" wx:elif="{{index==2}}"  style="background-color:#A0D468"></view>
+                                <view class="color-block" wx:elif="{{index==3}}"  style="background-color:#FFCE54"></view>
+                                <view class="color-block" wx:elif="{{index==4}}"  style="background-color:#CCD1D9"></view>
+                                <view class="color-block" wx:elif="{{index==5}}"  style="background-color:#E6E9ED"></view>
+                                {{item.name}}
+                            </view>
+                        </view>
+                        <view  class="tuli-list" wx:elif="{{no_performance}}">
+                            <view wx:for="{{tuli_Array}}" wx:key="{{index}}" class="tuli-item">
+                                <view class="color-block"   style="background-color:#CCD1D9"></view>
+                                {{item.name}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+            <view class="customerModel">
+                <view class='head'>
+                    <view class='modelTitle'>活跃客户</view>
+                    <view class='arrow_down_select'>
+                        <HomeSelect bind:myevent="getHotCustomer_model" id="countdown" selectShow="{{selectShow}}" nowText='今天' prop-array='{{selectArray}}'></HomeSelect>
+                    </view>
+                </view>
+                <view class='customerAmount'>
+                    <text class='grayTextNormal1'>老活跃客户：<text class='boldAmount'>{{hotCustomersData.oldHotNum}}</text></text>
+                    <text class='grayTextNormal3'>新增活跃客户：<text class='boldAmount'>{{hotCustomersData.newHotNum}}</text></text>
+                </view>
+                <view class="chart-row" >
+                    <view class="box">
+                        <ec-canvas id="mychart-dom-bar" bindtap='' canvas-id="mychart-bar" ec="{{ kc }}"></ec-canvas>
+                        <!--<cover-view  class="cutomertap"></cover-view>-->
+                    </view>
+                    <view class="tuli">
+                        <view  class="tuli-list">
+                            <view wx:for="{{hot_tuli_Array}}" wx:key="{{index}}" class="tuli-item_hot">
+                                <view class="hot-color-block" wx:if="{{index==0}}"  style="background-color:#FFCE54"></view>
+                                <view class="hot-color-block" wx:elif="{{index==1}}"  style="background-color:#48CFAD"></view>
+                                {{item.name}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+
+            <view class='tableModel'>
+                <view class='head'>
+                    <view class='modelTitle'>商品销售额TOP</view>
+                    <view class='arrow_down_select'>
+                        <HomeSelect bind:myevent="getCategories_goods" id="countdown" selectShow="{{selectShow}}" nowText='全部' width='220' prop-array='{{customerTypeArray}}'></HomeSelect>
+                    </view>
+                </view>
+                <view class='headTable'>
+                    <view class='border-right' style="width: 35%">
+                        <Filter bind:myevent="getBrand_goods" selectShow="{{selectShow}}" nowText='{{cate_default}}' prop-array='{{categoriesArray}}' prop-type="1"></Filter>
+                    </view>
+                    <view class='border-right' style="width: 25%">
+                        <Filter bind:myevent="getGoods_goods" selectShow="{{selectShow}}"  nowText='{{brand_default}}' prop-array='{{brandArray}}' prop-type="2"></Filter>
+                    </view>
+                    <view class='' style="width: 40%">
+                        <Filter bind:myevent="afterSelectGoods" selectShow="{{selectShow}}" nowText='{{goods_default}}' prop-array='{{goodsArray}}' prop-type="3"></Filter>
+                    </view>
+                </view>
+                <view style="display: flex;flex-direction: row">
+                    <view style='display:flex;flex-direction: column;'>
+                        <view  class='goodsName' >
+                            商品
+                        </view>
+                        <view wx:for="{{TOP5_goods_Array}}" style='position:relative' wx:key="{{index}}">
+                            <view class='tr'>
+                                <view class='td ' style='width:240rpx;height:100rpx;font-size: 22rpx;'><text class="nameText">{{item.goodsName}}</text></view>
+                                <view class='triangle-bottomright'>
+
+                                </view>
+                                <view class='index-top'>{{index+1}}</view>
+                            </view>
+                        </view>
+
+
+                    </view>
+                    <view style='display:flex;flex: 1'>
+                        <scroll-view scroll-x="true">
+                            <view class="table" >
+                                <view class="bg-w tt" >
+                                    <view class="th1">销售额</view>
+                                    <view class="th">渠道</view>
+                                    <view class="th ">产品类别</view>
+                                    <view class="th" style='border-right:0rpx;'>品牌</view>
+                                </view>
+                                <block wx:for="{{TOP5_goods_Array}}" wx:key="{{index}}">
+                                    <view class="tr tt" >
+                                        <view class="td1">{{item.totalSaleAmount}}</view>
+                                        <view class="td">{{item.customerType}}</view>
+                                        <view class="td">{{item.categoryName}}</view>
+                                        <view class="td" style='border-right:0rpx;'>{{item.brandName}}</view>
+                                    </view>
+
+                                </block>
+
+                            </view>
+                        </scroll-view>
+                    </view>
+
+                </view>
+                <view wx:if="{{TOP5_goods_Array.length==0}}" class="nodata">
+                    <text>暂无数据！</text>
+
+                </view>
+
+
+
+
+            </view>
+
+
+
+        </view>
+    </scroll-view>
+
+
+
+
+
+  <template is="tabBar" data="{{tabBar}}" />
+
+
+</view>

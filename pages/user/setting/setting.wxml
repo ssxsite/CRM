@@ -1,0 +1,21 @@
+<!--pages/user/setting/setting.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{'#000'}}" showWords="{{false}}" title="{{'设置'}}" back="{{true}}" background="{{'#fff'}}" fixed="{{true}}"></navigationBar>
+<view class="setting-page" style="height:{{height0}}px">
+    <view class="list">
+        <!--<view class="item flexBox" bindtap="goResetPass">
+            <view class="item-title flex-1">登录密码</view>
+            <view class="item-des">修改</view>
+            <image src="../../../images/arrow-r.png"></image>
+        </view>-->
+        <view class="item flexBox" bindtap="clearCache">
+            <view class="item-title flex-1">清除本地缓存</view>
+            <view class="item-des">{{cache}} M</view>
+            <image src="../../../images/arrow-r.png"></image>
+        </view>
+        <view class="item flexBox">
+            <view class="item-title flex-1">版本信息</view>
+            <view class="item-des">V1.0.0</view>
+        </view>
+    </view>
+    <button hover-class="btn-hover" class="logout" bindtap="logout">退出登录</button>
+</view>

@@ -1,0 +1,51 @@
+<!--pages/workbench/customer_detail/customer_detail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"  seftPaddingTop="10"></navigationBar>
+<view style='padding-top:{{statusBarHeight}}px;'>
+    <view class="add-tip" catchtap="gotoAddDetai">
+        <image  src="../../../images/addtips.png"></image>
+    </view>
+    <view class="scroll-top">
+        <span class="tip-item" wx:for="{{customerTips}}" wx:for-item="item" wx:key="{{item}}">{{item.labelName}}</span>
+    </view>
+    <view class="table-line"></view>
+    <view class="echart">
+        <view class="title">
+            <text>进货频次趋势图{{str}}</text>
+            <Select nowText='{{nowTime.name}}' prop-array='{{selectTimeArray}}'  bind:myevent="changNowTime"></Select>
+        </view>
+        <view class="chart-box" catchtouchmove="doNothing">
+            <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+        </view>
+    </view>
+    <view style="margin-top: 400rpx">
+        <view class="table-line"></view>
+        <view class="title next">
+            <text>进货产品明细</text>
+        </view>
+        <view class="customTable">
+            <view class="table-row thead">
+                <view class="table-cell" wx:for="{{titleList}}" wx:key="{{item}}" style="width: 25%">{{item}}</view>
+            </view>
+        </view>
+        <scroll-view scroll-y="true" style='height:{{height}}rpx'>
+            <view class="customTable">
+                <view class="table-row w-25 {{selectId == item.id ? 'active': ''}}"  wx:for="{{dataList}}" wx:key="{{item.id}}"
+                      data-item="{{item}}" wx:for-index="index" catchtap="selectTr">
+                    <view class="table-cell" ><span class=" mul-ellipsis">{{item.categoryName}}</span></view>
+                    <view class="table-cell" ><span class=" mul-ellipsis">{{item.goodsName}}</span></view>
+                    <view class="table-cell" ><span class=" mul-ellipsis">{{item.brandName}}</span></view>
+                    <view class="table-cell" ><span class=" mul-ellipsis">{{item.totalAmount}}</span></view>
+                </view>
+            </view>
+            <!--<view class='listbottom' hidden="{{!requestComplete && dataList.length > 0}}">加载更多数据...</view>-->
+            <view class='listbottom' hidden="{{requestComplete}}">
+                <span wx:if="{{dataList.length==0}}" class='listbottom'>暂无数据！</span>
+                <span wx:elif="{{dataList.length>0}}" class='listbottom'>已经拉到最底了！</span>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+
+
+
+

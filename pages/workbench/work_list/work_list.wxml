@@ -1,0 +1,24 @@
+<!--pages/workbench/work_list/work_list.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}" fixed="{{fixed}}"></navigationBar>
+<import src="../../../tabbar.wxml" />
+<view style='position:fixed; width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <view  class="common headerBac">
+        <view style='padding-top:12px;padding-left:22px'>
+            <text class='whiteText1'>{{user_detail.name}}</text>
+            <image class='settingImage' bindtap='setting' src='../../../images/setting.png' bindtap='setting'></image>
+            <view style='height:30px;width:106px;padding-top:4px'>
+                <text class='whiteText3'>冻品在线{{user_detail.organName+'\n'+user_detail.roleName}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="cen-wrap" catchtap="gotoDetail">
+        <view class="img-wrap">
+            <image src="../../../images/user.png"></image>
+        </view>
+        <view>
+            <text>客户管理</text>
+        </view>
+    </view>
+    <template is="tabBar" data="{{tabBar}}" />
+</view>

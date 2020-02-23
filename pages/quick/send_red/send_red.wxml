@@ -1,0 +1,14 @@
+<view class="send-red-tip">
+    <view class="cen-wrap">
+        <view class="img-wrap" bindtap="gotoDetail">
+            <image src="./imgs/send_red.png"></image>
+        </view>
+        <view>
+            <text>发放红包</text>
+        </view>
+        <view class="btn-wrap" bindtap="gotoBack">
+            <image src="./imgs/close.png"></image>
+        </view>
+    </view>
+</view>
+

@@ -1,0 +1,20 @@
+<!-- 下拉框-->
+<view class="dropdown">
+    <view style=" flex: 1;">
+        <view bindtap="dropdownTap" data-index="{{nowData.val}}" class="dropdownTip">
+            <text class="tip">{{nowData.text}}</text>
+            <image  src="../../images/drop_down.png" class="dowmTipImg"></image>
+        </view>
+    </view>
+
+    <!-- 下拉框选项-->
+    <view class="['sort',{{upordown}}]" hidden="{{sort_hidden}}">
+        <view wx:for="{{selectData}}" wx:key="this" data-index="{{index}}" catchtap="optionTap" data-item="{{item}}" class="content">
+            <text class="{{nowData.val== item.val? 'dropdown_active':''}}">{{item.text}}</text>
+            <image src="../../images/select8_2_1.png" class="icon {{nowData.val== item.val? 'show':'hide'}}"></image>
+        </view>
+    </view>
+    <!--从上到下遮罩层-->
+    <view class="['zhezhao',{{upordown}}]" hidden="{{zhezhao}}" catchtap="hideZhezhao"></view>
+</view>
+

@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#03A9F4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "近三个月发放历史",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "Select": "../../../component/select/select",
+    "navigationBar": "../../../component/navigationBar/navigationBar"
+  }
+}

@@ -1,0 +1,94 @@
+<wxs src="../../../utils/common.wxs" module="util"/>
+
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}"
+               background="{{barBg}}" fixed="{{fixed}}"></navigationBar>
+
+<view style='position:fixed; width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <dropdown now-data='{{nowData}}' select-data='{{selectData}}' bind:myevent="changeCustomerState"></dropdown>
+    <view class="search-tab" catchtap="rightTap">
+        <image src="../../../images/filter.png" class="search-tab-img"></image>
+        <text>筛选</text>
+    </view>
+    <view class="table-line"></view>
+    <view class="customTable">
+        <view class="table-row thead">
+            <view class="table-cell" wx:for="{{titleList}}" wx:key="{{item}}" style="width: 25%">{{item}}</view>
+        </view>
+    </view>
+
+    <scroll-view scroll-y="true" style='height:{{height}}rpx;-webkit-overflow-scrolling: touch;' bindscrolltolower="loadMore">
+        <view class="customTable">
+            <block wx:for="{{dataListArr}}" wx:for-item="dataList" wx:for-index="dataListArrIndex" wx:key="dataListArrIndex">
+                <view class="table-row w-25 {{selectId == item.id ? 'active': ''}}" wx:for="{{dataList}}"
+                      wx:key="{{item.id}}"
+                      data-item="{{item}}" wx:for-index="index" catchtap="selectTr">
+                    <view class="table-cell"><span class=" mul-ellipsis">{{item.name}}</span></view>
+                    <view class="table-cell"><span class="mul-ellipsis {{util.getColor(item.hotStateDesc)}}"
+                                                   data-item="item">{{item.hotStateDesc}}</span></view>
+                    <view class="table-cell"><span class=" mul-ellipsis">{{item.dateNum}}</span></view>
+                    <view class="table-cell"><span class=" mul-ellipsis ">{{item.totalOrderAmount}}</span></view>
+                </view>
+            </block>
+        </view>
+        <!--<view class='listbottom' hidden="{{!requestComplete && dataList.length > 0}}">加载更多数据...</view>-->
+        <view class='listbottom' hidden="{{requestComplete}}">
+            <span wx:if="{{dataListArr.length==0}}" class='listbottom'>暂无数据！</span>
+            <span wx:elif="{{dataListArr.length>0}}" class='listbottom'>已经拉到最底了！</span>
+        </view>
+
+    </scroll-view>
+
+</view>
+
+
+<!--从左到右遮罩层-->
+<view class="['zhezhaoRight',{{uporleft}}]" hidden="{{zhezhaoRight}}" catchtap="rightTapHidden" catchtouchmove="doNothing"></view>
+
+<!-- bindtouchstart="touchS" bindtouchmove="touchM" -->
+<view class="['rightPannel',{{uporleft}}]" hidden="{{zhezhaoRight}}" catchtouchmove="doNothing">
+    <view class="content">
+        <view style="overflow: hidden">
+            <view class="title title-float">
+                <span>筛选时间</span>
+            </view>
+            <Select nowText='{{nowTime.name}}' prop-array='{{selectTimeArray}}' style="float:left"
+                    bind:myevent="changNowTime" selectShow="{{selectShow}}" id="countdown"></Select>
+        </view>
+        <view class="title">
+            筛选标签
+        </view>
+        <scroll-view scroll-y="true" bindscrolltolower='lower' style='height:{{height}}rpx'>
+            <view class="tips">
+                <span class="tips-item {{item.light? 'active':''}}" wx:for="{{customerTips}}"
+                wx:key="{{item.id}}" catchtap="clickTip" data-item="{{item}}" data-index="{{index}}" wx:for-index="index">
+                    <image src="../../../images/select8_2_3.png" class="tips-item-img"></image>
+                    <span>{{item.labelName}}</span>
+            </span>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class="fix-bottom">
+        <button catchtap="resetFilter" class="flex-1" hover-class="btn-hover">重置</button>
+        <button catchtap="confirmFilter" class=" btn-blue flex-1" hover-class="btn-hover">确认</button>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

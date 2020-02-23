@@ -1,0 +1,13 @@
+<!--component/home-select.wxml-->
+<view style='width:{{width}}rpx'>
+    <view class='com-sContent' bindtap='selectToggle'>
+        <view class='com-sTxt'>{{nowText}}</view>
+        <image src='../../images/drop_down.png'  class='com-sImg'  animation="{{animationData}}"></image>
+    </view>
+    <view class='com-sList' wx:if="{{selectShow}}">
+        <!--<view wx:for="{{propArray}}" data-index="{{index}}" wx:key='' class='com-sItem' bindtap='setText' >{{item.name}}</view>-->
+        <scroll-view scroll-top="100" scroll-with-animation="true" style="overflow: visible">
+            <view wx:for="{{propArray}}" data-index="{{index}}" wx:key='' class='com-sItem' bindtap='setText' >{{item.name}}</view>
+        </scroll-view>
+    </view>
+</view>

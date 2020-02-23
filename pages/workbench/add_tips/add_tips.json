@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#03A9F4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "客户名称添加标签",
+  "backgroundColor": "#FAFAFA",
+  "usingComponents": {
+    "navigationBar": "../../../component/navigationBar/navigationBar"
+  }
+}

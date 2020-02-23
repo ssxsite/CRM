@@ -1,0 +1,23 @@
+<template name="tabBar">
+ 
+  <!--<view class="tab-bar" style="color:{{tabBar.color}};background:{{tarBar.backgroundColor}};{{tabBar.position=='top'? 'top: 0' : 'bottom: 0'}}; {{tabBar.borderStyle? (tabBar.position=='top'? 'border-bottom: solid 1px '+tabBar.borderStyle + ';' : 'border-top: solid 1px '+tabBar.borderStyle + ';') : ''}}">-->
+ <!---->
+    <!--<block wx:for="{{tabBar.list}}" wx:key="{{item.pagePath}}">-->
+      <!--<navigator url="{{item.pagePath}}" open-type="{{item.navigate?'navigate':'redirect'}}" class="{{item.clas}}" style="{{item.selected? 'color: '+(item.selectedColor? item.selectedColor : tabBar.selectedColor) : ''}}">-->
+        <!--<image src="{{item.selectedIconPath}}" wx:if="{{item.selected}}" class="img"></image>-->
+        <!--<image src="{{item.iconPath}}"  wx:if="{{!item.selected}}" class="img"></image>-->
+        <!--<text>{{item.text}}</text>-->
+      <!--</navigator>-->
+    <!--</block>-->
+    <!--<view class="clear"></view>-->
+  <!--</view>-->
+  <cover-view class="tab-bar" style="color:{{tabBar.color}};background:{{tarBar.backgroundColor}};{{tabBar.position=='top'? 'top: 0' : 'bottom: 0'}}; {{tabBar.borderStyle? (tabBar.position=='top'? 'border-bottom: solid 1px '+tabBar.borderStyle + ';' : 'border-top: solid 1px '+tabBar.borderStyle + ';') : ''}}">
+    <cover-view wx:for="{{tabBar.list}}" wx:key="{{item.pagePath}}" bindtap="selectTab" data-curritem="{{item}}"   style="height: 100rpx;margin-top:10rpx;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column">
+      <cover-image src="{{item.selectedIconPath}}" wx:if="{{item.selected}}" style="width: 52rpx;height:52rpx"></cover-image>
+      <cover-image src="{{item.iconPath}}"  wx:if="{{!item.selected}}" style="width: 52rpx;height:52rpx"></cover-image>
+      <button wx:if="{{item.selected}}" plain="true" style="font-size: 22rpx;border: none;color: #03A9F4">{{item.text}}</button>
+      <button wx:if="{{!item.selected}}" plain="true" style="font-size: 22rpx;border: none;color: #8B8B8B">{{item.text}}</button>
+    </cover-view>
+  </cover-view>
+ 
+</template>

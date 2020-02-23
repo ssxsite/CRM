@@ -1,0 +1,6 @@
+/* pages/quick/send_history/send_history.wxss */
+.center-wrap{
+  width:86px;
+  margin: 20rpx auto;
+  display: block;
+}

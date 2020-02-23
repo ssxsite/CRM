@@ -1,0 +1,61 @@
+/* component/home-select.wxss */
+.com-selectBox{
+    /*width: 172rpx;*/
+    /*z-index: 200;*/
+}
+.com-sContent{
+    border: 0.5px solid #EBEBEB;
+    background: white;
+    font-size: 26rpx;
+    position: relative;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 4rpx;
+
+}
+
+.com-sImg{
+    position: absolute;
+    right: 20rpx;
+    top: 26rpx;
+    width: 16rpx;
+    height: 8rpx;
+    transition: all .3s ease;
+}
+.com-sTxt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0 40rpx 0 12rpx;
+    font-size: 26rpx;
+}
+.com-sList{
+    background: white;
+    width: inherit;
+    position: absolute;
+    border: 1rpx solid #EBEBEB;
+    border-top: none;
+    box-sizing: border-box;
+    z-index: 999999999;
+    max-height: 280rpx;
+    overflow: auto;
+}
+.com-sItem{
+    height: 70rpx;
+    line-height: 70rpx;
+    border-top: 1rpx solid #EBEBEB;
+    padding: 0 12px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 26rpx;
+    /*background-color: red;*/
+}
+.com-sItem:first-child{
+    border-top: none;
+}
+.buttonClass{
+    background-color: red;
+    width: 100%;
+}

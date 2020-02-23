@@ -1,0 +1,60 @@
+<wxs src="../../../component/transform.wxs" module="threeNum" />
+
+
+<view>
+    <view style='position:fixed; top:0rpx;width: 100%;'>
+        <navigationBar id="navigationBar" placeholderBg="" color="{{'#ffffff'}}" title="{{title}}" back="{{true}}" background='#03A9F4' fixed="{{fixed}}"></navigationBar>
+    </view>
+<view style='position:fixed; top:{{top}}px;width: 100%;'>
+
+   <Dropdown bind:myevent="getCategory_data" now-data='{{nowData}}' select-data='{{selectData}}' prop-array='{{selectArray}}'></Dropdown>
+   <view class='amount'>
+    <view>
+       <text class='number-name'>销售额：</text>
+       <text class='bold-number'>{{per_categoryData.totalOrderAmount}}</text>
+    </view>
+    <view>
+       <text class='number-name'>订单数：</text>
+       <text class='bold-number'>{{per_categoryData.totalOrderCount}}</text>
+    </view>
+   </view>
+    <view class="gray_row"></view>
+    <view class="table">
+  <view class="tr">
+    <view class="th td_small">排名</view>
+    <view class="th td_width">产品</view>
+    <view class="th">品牌</view>
+    <view class="th">销售额</view>
+    <view class="th">占比</view>
+  </view>
+</view>
+   
+
+  <scroll-view scroll-y="true" style='height:{{height}}rpx' bindscrolltolower='lower'>
+    <view wx:for="{{per_goodsPerformances}}" wx:key="{{code}}" >
+        <view wx:if="{{index%2==0}}" >
+            <view class="tr_gray">
+                <view class="td td_small">{{index+1}}</view>
+                <view class="td td_width"><text class="nameText">{{item.goodsName}}</text></view>
+                <view class="td">{{item.brandName}}</view>
+                <view class="td">{{item.totalAmount}}</view>
+                <view class="td">{{threeNum.fixed_two(item.percentage)}}%</view>
+            </view>
+        </view>
+        <view wx:else >
+            <view class="tr">
+                <view class="td td_small">{{index+1}}</view>
+                <view class="td td_width">{{item.goodsName}}</view>
+                <view class="td">{{item.brandName}}</view>
+                <view class="td">{{item.totalAmount}}</view>
+                <view class="td">{{threeNum.fixed_two(item.percentage)}}%</view>
+            </view>
+        </view>
+    
+    </view>
+    <view wx:if="{{per_goodsPerformances.length==0}}" class='listbottom'>暂无数据！</view>
+    <view wx:elif="{{per_goodsPerformances.length>0}}" class='listbottom'>已经拉到最底了！</view>
+  </scroll-view>
+  
+   </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#03A9F4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "查找商户",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "navigationBar": "../../../component/navigationBar/navigationBar"
+  }
+}

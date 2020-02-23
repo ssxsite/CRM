@@ -1,0 +1,40 @@
+<!--pages/quick/send_red_detail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"></navigationBar>
+<view style='position:fixed; width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <view class="top input-wrap" bindtap="gotoCustomer">
+        <view class="input-tip">
+            <span>请输入商户名称、商户账号进行查找</span>
+        </view>
+    </view>
+    <view class="table-line" style="width: 100%"></view>
+    <view class="customTable">
+        <view class="table-row thead">
+            <view class="table-cell" wx:for="{{titleList}}" wx:key="{{item}}" style="width: 25%">{{item}}</view>
+        </view>
+    </view>
+    <view class="customTable">
+        <view class="table-row w-25 {{selectId == item.id ? 'active': ''}}"  wx:for="{{dataList}}" wx:key="{{item.id}}"
+              data-item="{{item}}" wx:for-index="index" bindtouchstart="touchS" bindtouchmove="touchM">
+            <view class="table-cell" ><span class=" mul-ellipsis">{{item.account}}</span></view>
+            <view class="table-cell"><span class=" mul-ellipsis" data-item="item">{{item.name}}</span></view>
+            <view class="table-cell" ><span class=" mul-ellipsis">{{item.customerType}}</span></view>
+            <view class="del-button"  catchtap="deleteTr"  data-index="{{index}}" wx:if="{{status}}">删除</view>
+        </view>
+    </view>
+    <view class="send-input-wrap">
+        <view class="title">红包金额:</view>
+        <view class="input-wrap">
+            <text class="money">¥</text>
+            <input type="digit" maxlength="5" placeholder="最大可输入金额为50" placeholder-style="color: #E6E6E6" bindinput="moneyInput" value="{{money}}" bindblur="validateMoney"/>
+        </view>
+        <view class="jidu">
+            本月剩余额度：<span class="org">￥{{balance}}</span>
+        </view>
+        <button class="btn" disabled="{{btnDisabled}}" bindtap="sendMoney" hover-class="btn-hover">发放</button>
+        <view class="his" bindtap="gotoHistory">查看发放历史 ></view>
+    </view>
+</view>
+
+
+
+

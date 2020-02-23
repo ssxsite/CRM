@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#03A9F4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "客户管理",
+  "backgroundColor": "#fff",
+  "usingComponents": {
+    "Select": "../../../component/select/select",
+    "navigationBar": "../../../component/navigationBar/navigationBar",
+    "dropdown": "../../../component/dropdown/dropdown"
+  }
+}

@@ -1,0 +1,71 @@
+<!--pages/home/performance_data/performance_data.wxml-->
+<wxs src="../../../component/transform.wxs" module="threeNum" />
+
+
+<view>
+    <view style='position:fixed; top:0rpx;width: 100%;'>
+        <navigationBar id="navigationBar" placeholderBg="" color="{{'#ffffff'}}" title="{{'业绩数据'}}" back="{{true}}" background='#03A9F4' fixed="{{fixed}}"></navigationBar>
+    </view>
+    <view style='position:fixed; top:{{top}}px;width: 100%;'>
+
+
+
+        <Dropdown bind:myevent="getPerformance_data" now-data='{{nowData}}' select-data='{{selectData}}' prop-array='{{selectArray}}'></Dropdown>
+        <view class='amount'>
+            <view>
+                <text class='number-name'>销售额：</text>
+                <text class='bold-number'>{{performanceData.totalOrderAmount}}</text>
+            </view>
+            <view>
+                <text class='number-name'>订单数：</text>
+                <text class='bold-number'>{{performanceData.totalOrderCount}}</text>
+            </view>
+        </view>
+        <view class="gray_row"></view>
+        <view class="table">
+            <view class="tr">
+                <view class="th td_small" >排名</view>
+                <view class="th">大类</view>
+                <view class="th ">中类</view>
+                <view class="th">小类</view>
+                <view class="th">占比</view>
+            </view>
+        </view>
+        <view>
+
+
+            <scroll-view scroll-y="true" style='height:{{height}}rpx' bindscrolltolower='lower'>
+                <view wx:for="{{per_categoryData}}" wx:key="{{code}}" >
+                    <view wx:if="{{index%2==0}}">
+                        <view class="tr_gray" bindtap='goPerformanceDetail' data-categoryname="{{item.categoryLevel3}}" data-categoryid="{{item.categoryId}}">
+                            <view class="td td_small">{{index+1}}</view>
+                            <view class="td">{{item.categoryLevel1}}</view>
+                            <view class="td">{{item.categoryLevel2}}</view>
+                            <view class="td">{{item.categoryLevel3}}</view>
+                            <view class="td">{{threeNum.fixed_two(item.percentage)}}%</view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view class="tr" bindtap='goPerformanceDetail' data-categoryname="{{item.categoryLevel3}}" data-categoryid="{{item.categoryId}}">
+                            <view class="td td_small">{{index+1}}</view>
+                            <view class="td">{{item.categoryLevel1}}</view>
+                            <view class="td">{{item.categoryLevel2}}</view>
+                            <view class="td">{{item.categoryLevel3}}</view>
+                            <view class="td">{{threeNum.fixed_two(item.percentage)}}%</view>
+                        </view>
+                    </view>
+
+                </view>
+
+                <view wx:if="{{per_categoryData.length==0}}" class='listbottom'>暂无数据！</view>
+                <view wx:elif="{{per_categoryData.length>0}}" class='listbottom'>已经拉到最底了！</view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!--pages/quick/send_red_detail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}" seftPaddingTop="10"></navigationBar>
+
+<view style='position:fixed;width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <view class="input-wrap" >
+        <view class="input-tip">
+            <input auto-focus  placeholder-style="color: #C6C6C6;font-weight:500;" placeholder="请输入商户名称、商户账号进行查找" adjust-position="true" bindinput="bindKeyInput" value="{{keyWord}}" bindblur="bindBlur"/>
+        </view>
+    </view>
+    <view class="table-line"></view>
+    <view class="customTable">
+        <view class="table-row thead">
+            <view class="table-cell" wx:for="{{titleList}}" wx:key="{{item}}" style="width: 25%">{{item}}</view>
+        </view>
+    </view>
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}"  scroll-with-animation = "true" style='height:{{height}}rpx' bindscrolltolower='loadMore'>
+        <view class="customTable">
+            <view class="table-row w-25 {{selectId == item.id ? 'active': ''}}"  wx:for="{{dataList}}" wx:key="{{item.id}}"
+                  data-item="{{item}}" wx:for-index="index" catchtap="gotoSendRed">
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.account}}</span></view>
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.name}}</span></view>
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.customerType}}</span></view>
+            </view>
+        </view>
+        <view class='listbottom' hidden="{{requestComplete}}">
+            <span wx:if="{{dataList.length==0}}" class='listbottom'>暂无数据！</span>
+            <span wx:elif="{{dataList.length>0}}" class='listbottom'>已经拉到最底了！</span>
+        </view>
+    </scroll-view>
+</view>
+
+
+

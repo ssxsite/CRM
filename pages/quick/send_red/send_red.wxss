@@ -1,0 +1,44 @@
+.send-red-tip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: #fff;
+  z-index: 2;
+}
+.send-red-tip .cen-wrap {
+  padding-top: 50%;
+  text-align: center;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.send-red-tip .cen-wrap .img-wrap {
+  display: block;
+  margin: 0 auto 10rpx auto;
+}
+.send-red-tip .cen-wrap .img-wrap image {
+  width: 130rpx;
+  height: 130rpx;
+}
+.send-red-tip .cen-wrap text {
+  font-size: 28rpx;
+  text-align: center;
+  color: #222222;
+}
+.send-red-tip .cen-wrap .btn-wrap{
+  position: absolute;
+  width: 100%;
+  bottom: 30%;
+}
+.send-red-tip .cen-wrap .btn-wrap image {
+  margin-top: 494rpx;
+  display: inline-block;
+  width: 74rpx;
+  height: 74rpx;
+  background-size: 100%;
+}
+
+

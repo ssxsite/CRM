@@ -1,0 +1,28 @@
+/* pages/user/login/login.wxss */
+.login-page{
+  margin:0 60rpx;
+}
+.logo{
+  margin: 200rpx auto 40rpx;
+  display: block;
+  text-align: center;
+  width: 168rpx;
+  height: 168rpx;
+}
+.welcome{
+  display: block;
+  text-align: center;
+  font-size: 33rpx;
+  font-weight: bold;
+  margin-bottom: 100rpx;
+}
+.password text{
+  font-size: 28rpx;
+  color: #666;
+  position: absolute;
+  right: 0;
+  bottom: 25rpx;
+}
+.form .getButton.disabled{
+    background:rgba(3,169,244,0.6);
+}

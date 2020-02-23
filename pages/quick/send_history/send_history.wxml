@@ -1,0 +1,29 @@
+<wxs src="../../../utils/common.wxs" module="util" />
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"></navigationBar>
+
+<view style='position:fixed;width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <Select nowText='{{nowTime.name}}' prop-array='{{selectTimeArray}}' class="center-wrap" bind:myevent="changNowTime"></Select>
+    <view class="table-line"></view>
+    <view class="customTable">
+        <view class="table-row thead">
+            <view class="table-cell" wx:for="{{titleList}}" wx:key="{{item}}" style="width: 25%">{{item}}</view>
+        </view>
+    </view>
+    <scroll-view scroll-y="true"  style='height:{{height}}rpx'>
+        <view class="customTable">
+            <view class="table-row w-25 {{selectId == item.id ? 'active': ''}}"  wx:for="{{dataList}}" wx:key="{{item.id}}"
+                  data-item="{{item}}" wx:for-index="index" >
+                <view class="table-cell" ><span class=" mul-ellipsis">{{util.subDateTime(item.chnTime)}}</span></view>
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.account}}</span></view>
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.customerName}}</span></view>
+                <view class="table-cell" ><span class=" mul-ellipsis">{{item.chnAmount}}</span></view>
+            </view>
+        </view>
+        <view class='listbottom' hidden="{{requestComplete}}">
+            <span wx:if="{{dataList.length==0}}" class='listbottom'>暂无数据！</span>
+            <span wx:elif="{{dataList.length>0}}" class='listbottom'>已经拉到最底了！</span>
+        </view>
+
+    </scroll-view>
+
+</view>

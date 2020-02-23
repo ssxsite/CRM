@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "HomeSelect": "../../component/home-select/home-select",
+    "Filter": "../../component/filter/filter",
+    "navigationBar": "../../../component/navigationBar/navigationBar"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,16 @@
+/* pages/quick/send_red_detail.wxss */
+.input-wrap{
+  padding: 19rpx 24rpx;
+}
+.input-wrap .input-tip{
+  background-color: #EFEFEF;
+  padding-left: 20rpx;
+
+}
+.input-wrap .input-tip input{
+  height: 64rpx;
+  vertical-align: middle;
+  font-size:28rpx;
+  font-weight:500;
+  color:#222222;
+}

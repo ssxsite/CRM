@@ -1,0 +1,38 @@
+<!--pages/workbench/add_tips/add_tips.wxml-->
+<navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}" seftPaddingTop="10"></navigationBar>
+
+<view style='position:fixed; width: 100%;z-index: 1;top:{{statusBarHeight}}px;'>
+    <view class="top">
+        <view class="add-tip" catchtap="addTip">＋ 新建标签</view>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltolower='lower' style='height:{{height}}rpx;'>
+        <view class="tips">
+            <span class="tips-item {{item.light? 'active':''}}" wx:for="{{allCustomerTips}}"
+          wx:key="{{item.id}}" catchtap="lightCustomerlabel" data-item="{{item}}" data-index="{{index}}"  wx:for-index="index">
+                <image src="../../../images/select8_2_3.png" class="tips-item-img"></image>
+                <span>{{item.labelName}}</span>
+    </span>
+        </view>
+    </scroll-view>
+</view>
+
+
+<!-- model -->
+<view class='mask' wx:if='{{show}}' catchtouchmove="doNothing">
+    <view class='modal-content'>
+        <view class='main-content'>
+            <view class="title">新建标签</view>
+            <view class="center-wrap flexBox">
+                <text class="lable">标签名称</text>
+                <input type="text" class="input" placeholder="请输入标签名称" placeholder-style="color: #E6E6E6" bindinput="bindKeyInput" maxlength="10"/>
+            </view>
+        </view>
+        <view class='modal-btn-wrapper'>
+            <button class='cancel-btn' style='color:#13b5f5' bindtap='cancel' hover-class="btn-hover">取消</button>
+            <button class='confirm-btn' style='color:#13b5f5' bindtap='confirm' hover-class="btn-hover">完成</button>
+        </view>
+    </view>
+</view>
+
+
+

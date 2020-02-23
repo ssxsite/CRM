@@ -1,0 +1,19 @@
+<!--pages/user/login/setting.wxml-->
+
+<view class="login-page">
+    <image class="logo" src="../../../images/logo.png"></image>
+    <text class="welcome">欢迎使用冻品在线CRM</text>
+    <form class="login-form form">
+      <view class="account">
+        <input class="inputText" value="{{account}}" placeholder-class="placehoder" placeholder="请输入账号" bindinput="accountInput" maxlength="20"/>
+        <image wx:if="{{isAccountShow}}" data-type="0" bindtap="close" class="close" src='../../../images/close.png'></image>
+      </view>
+      <view class="password">
+          <input value="{{password}}" class="inputText" placeholder-class="placehoder" placeholder="请输入密码" bindinput="passwordInput" password="true" maxlength="20"/>
+          <image wx:if="{{isPassShow}}" data-type="1" bindtap="close" class="close" src='../../../images/close.png'></image>
+          <!--<text bindtap="resetPassword" bindtap="resetPassword">忘记密码？</text>-->
+      </view>
+      <button wx:if="{{password.length>=1&&account.length>=1}}" hover-class="btn-hover" class="getButton" bindtap="login">登录</button>
+      <button wx:if="{{password.length<1||account.length<1}}" class="getButton disabled">登录</button>
+    </form>
+</view>

@@ -1,0 +1,71 @@
+.com-selectBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.com-sContent{
+    /* border: 1px solid #e2e2e2; */
+    background: white;
+    font-size: 26rpx;
+    position: relative;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.com-sImg{
+    position: absolute;
+    right: 8rpx;
+    top: 16rpx;
+    width: 16rpx;
+    height: 8rpx;
+    transition: all .3s ease;
+}
+.com-sTxt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0 20rpx 0 12rpx;
+    font-size: 26rpx;
+    width: 140rpx;
+    text-align: center;
+}
+.com-sTxt-disable{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:0 20rpx 0 12rpx;
+    font-size: 26rpx;
+    color: #8B8B8B;
+    width: 140rpx;
+    text-align: center;
+}
+.com-sList{
+    background: white;
+    width: 100%;
+    position: absolute;
+    border: 0.5rpx solid #EBEBEB;
+    /* border-top: none; */
+    box-sizing: border-box;
+    z-index: 99;
+    max-height: 280rpx;
+    overflow: auto;
+    top:50rpx;
+
+}
+.com-sItem{
+    height: 70rpx;
+    line-height: 70rpx;
+    border-top: 0.5px solid #EBEBEB;
+    padding: 0 24rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 26rpx;
+    text-align: center;
+
+}
+.com-sItem:first-child{
+    border-top: none;
+}

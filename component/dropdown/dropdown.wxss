@@ -1,0 +1,76 @@
+.dropdown {
+  display: flex;
+  position: relative;
+  font-size:28rpx;
+}
+.dropdown .dropdownTip{
+  width: 25%;
+  margin: 0 auto;
+  line-height: 90rpx;
+  text-align: center;
+  font-size:30rpx;
+  font-weight:bold;
+}
+.dropdown .dropdownTip .tip{
+  vertical-align: middle;
+}
+.dropdown .dropdownTip .dowmTipImg{
+  width: 16rpx;
+  height: 8rpx;
+  vertical-align: middle;
+  margin-left: 14rpx;
+}
+
+/* 下拉框一 */
+.sort {
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 80rpx;
+  z-index: 10;
+  background-color: white;
+}
+.sort .content {
+  line-height: 80rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #222222;
+  border-top: 1px solid #EBEBEB;
+  padding: 0 30rpx;
+}
+.sort .dropdown_active {
+  color: #03A9F4;
+}
+.sort .icon {
+  width: 30rpx;
+  height: 21rpx;
+  float: right;
+  margin-top: 30rpx;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none
+}
+
+/* 蒙层消失 */
+.zhezhao {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 80%;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+
+
+
+

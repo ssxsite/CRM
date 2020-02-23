@@ -1,0 +1,47 @@
+/* pages/user/login/login.wxss */
+
+.setting-page{
+  /*height:100%;*/
+  width:100%;
+  background-color: #f7f7f7;
+  position: absolute;
+}
+.list{
+  margin-top: 140rpx;
+  background-color: #fff;
+  border-bottom: none;
+}
+.item{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+.item:last-child{
+  border-bottom: none;
+}
+.item-title{
+  color: #000;
+  font-size: 30rpx;
+}
+.item-des{
+  text-align: right;
+  color: #999;
+  font-size: 26rpx;
+}
+.item image{
+  width:13rpx;
+  height: 24rpx;
+  margin-left: 22rpx;
+}
+.logout{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-top: 60rpx;
+  font-size: 32rpx;
+  color: #D7101E;
+  background-color: #fff;
+  border-radius: 0!important;
+}
+button.logout::after{ border: none; }

@@ -1,0 +1,147 @@
+/* pages/workbench/add_tips/add_tips.wxss */
+.top{
+  overflow: hidden;
+  padding-top: 30rpx;
+  margin-bottom:30rpx;
+  padding-right: 20rpx;
+}
+.top .add-tip{
+  font-size:28rpx;
+  float: right;
+  font-weight:500;
+  color: #01579B;
+}
+
+
+.tips {
+  width: 100%;
+  overflow: hidden;
+  padding:10rpx 0 20rpx 0;
+}
+
+.tips .tips-item {
+  display: inline-block;
+  font-size: 24rpx;
+  height: 70rpx;
+  margin: 0 0 20rpx 20rpx;
+  padding: 0 30rpx;
+  background-color: #f4f4f4;
+  border-radius: 6rpx;
+  text-align: center;
+  min-width: 190rpx;
+  max-width: 95%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.tips .tips-item span{
+  vertical-align: middle;
+  line-height: 64rpx;
+  padding-right: 14rpx;
+}
+.tips .tips-item .tips-item-img {
+  display: inline-block;
+  width: 14rpx;
+  height: 20rpx;
+  padding-right: 10rpx;
+  display: none;
+  vertical-align: middle;
+  line-height: 64rpx;
+  display: inline-block;
+  visibility: hidden;
+}
+
+.tips .tips-item.active {
+  color: #03A9F4;
+  background-color: #eefbfc;
+  box-shadow: 0 0 0 4rpx #03A9F4;
+}
+
+.tips .tips-item.active .tips-item-img {
+  visibility: visible;
+}
+
+
+/* model */
+.mask{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0);
+  z-index: 9999;
+}
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 384rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  border:1px solid rgba(230,230,230,1);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.modal-btn-wrapper{
+  display: flex;
+  flex-direction: row;
+  line-height: 100rpx;
+  border-top: 2rpx solid rgba(7,17,27,0.1);
+}
+.modal-btn-wrapper button{
+  background-color: white;
+  border-radius: 0;
+}
+button::after {
+  border: none;
+}
+.cancel-btn, .confirm-btn{
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.cancel-btn{
+  border-right: 2rpx solid rgba(7,17,27,0.1)!important;
+}
+.main-content{
+  flex: 1;
+  height: 100%;
+  overflow-y: hidden;
+}
+.main-content .title{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-bottom: 10rpx;
+  background-color: #E1F5FE;
+  color: #222222;
+  font-weight:bold;
+  font-size:34rpx;
+  text-align: center;
+}
+.main-content .center-wrap{
+  padding: 0 72rpx;
+  height: 170rpx;
+}
+.main-content .center-wrap .lable{
+  font-size:30rpx;
+  font-weight:bold;
+  color: #222222;
+  margin-right: 20rpx;
+}
+.main-content .center-wrap input{
+  height: 80rpx;
+  border:1px solid rgba(221,221,221,1);
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  flex: 1;
+
+}

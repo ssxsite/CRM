@@ -1,0 +1,15 @@
+
+var threeNum = {
+
+  fixed_two:function(num){
+     var result = '';
+     result = num*100;
+     result = result.toFixed(2);
+     return result;
+  }
+}
+
+module.exports = {
+  add_comma_toThousands: threeNum.add_comma_toThousands,//暴露接口调用
+  fixed_two:threeNum.fixed_two
+}

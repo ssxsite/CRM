@@ -1,0 +1,31 @@
+var subDateTime = function (str) {
+    if(typeof str === 'string'){
+        return str.slice(0,10)
+    }
+}
+var getColor = function (str) {
+   switch(str)
+   {
+   case '沉默':
+     return 'colorGray'
+     break;
+   case '新沉默':
+      return 'colorGray'
+      break;
+   case '未激活':
+      return 'colorLightGray'
+      break;
+   case '活跃下降':
+      return 'colorRed'
+      break;
+   case '活跃正常':
+      return 'colorGreen'
+      break;
+   default:
+     return ''
+   }
+}
+module.exports = {
+subDateTime: subDateTime
+getColor:getColor
+}
